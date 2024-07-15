@@ -1,79 +1,69 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Web Development Project 6 - LocalDrafts
 
-# Getting Started
+## Check it out here! -> [Local Drafts](https://lumberger22.github.io/LocalDrafts/)
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+Submitted by: **Lucas Umberger**
 
-## Step 1: Start the Metro Server
+**Local Drafts is an innovative web application designed for beer enthusiasts and casual drinkers alike, offering a dynamic and user-friendly platform to discover breweries in their immediate vicinity. By harnessing the power of location-based technology, Local Drafts displays a detailed map pinpointing nearby breweries, ranging from well-known establishments to hidden gems off the beaten path. The user can filter their results by name search or by brewery type.**
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+ - Languages: JavaScript, HTML, CSS
+ - Framework: React
+ - APIs used:
+     - Open Brewery DB --> [Documentation](https://www.openbrewerydb.org/documentation)
+     - Google Maps JS API --> [Documentation](https://developers.google.com/maps/documentation/javascript)
 
-To start Metro, run the following command from the _root_ of your React Native project:
+Time spent: **24** hours spent in total
 
-```bash
-# using npm
-npm start
+## User Features
 
-# OR using Yarn
-yarn start
-```
+The following **required** functionality is completed:
 
-## Step 2: Start your Application
+- [x] **The list displays a list of data fetched using an API call**
+- [x] **Data uses the useEffect React hook and async/await syntax**
+- [x] **The app dashboard includes at least three summary statistics about the data such as nearest brewery, breweries shown, and a map pinpointing breweries shown based on latitude and   longitude**
+- [x] **A search bar allows the user to search for an item in the fetched data**
+- [x] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
+- [x] **The app includes at least one unique data visualization developed using the fetched data that tell an interesting story**
+- [x] **Clicking on an item in the list view displays more details about it**
+- [x] **Clicking on an item has a direct, unique link to that item's detail view page**
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+The following **optional** features are implemented:
 
-### For Android
+- [x] Multiple filters can be applied simultaneously
+- [x] Filters use different input types such as a text input, a selection, or a slider
 
-```bash
-# using npm
-npm run android
+The following **additional** features are implemented:
 
-# OR using Yarn
-yarn android
-```
+* [x] All filtered breweries are displayed on a map and can be interacted with
+* [x] Brewery Detail Cards are linked to brewery website if provided in API call
+* [x] Header sidebar provides navigational links to parts of the page
 
-### For iOS
+## Video Walkthrough
 
-```bash
-# using npm
-npm run ios
+Here's a walkthrough of implemented user features:
 
-# OR using Yarn
-yarn ios
-```
+![](LocalDrafts_walkthrough2.gif)
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+GIF created with ScreenToGif
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+## Challenges
 
-## Step 3: Modifying your App
+  - One of the biggest challenges I had was getting the map to display on the screen with the markers. I originally was using a deprecated react-google-maps API because I did not know about the Google Maps Platform that has a JS Maps API. I then switched to it and was able to render the map successfully. I then had to figure out how to get the Markers on the screen and map through them. I was able to pass props to the map so that when it is updated in App.jsx, the map rerenders and markers update.
+  - Another challenge I had was with getting the filters to work on the list and filteredResults arrays. To get to the solution I decided on, the stucture went through several revisions that involved changing methods and adding different variables. I orignially was using the filtered results starting at zero and when a filter was changed I would put the filtered results into the array. This however caused errors with trying to load the filtered results when no results were found. I ended up starting with filteredResults being the full json, and trimming it down if a filter was changed.
+  - Working on the second part of the project, where I implemented the detail cards that are linked to the dashboard listing, I had trouble getting the results to save for the user. By this I mean that when the user applied a filter to the inital brewery list, went to the detail page, and went back to the dashboard, the filters were reset. I wanted to keep the filters on for usability. I initally was going to pass a state prop in between links but could not effectively pass the selected types list and search input string. I ended up using the sessionStorage to hold the filters and updated them each time the page was reset.
 
-Now that you have successfully run the app, let's modify it.
+## License
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+    Copyright [yyyy] [name of copyright owner]
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
 
-## Congratulations! :tada:
+        http://www.apache.org/licenses/LICENSE-2.0
 
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
