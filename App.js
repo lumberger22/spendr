@@ -1,10 +1,13 @@
 import React from "react";
-import { View } from "react-native";
+import { Text, View } from "react-native";
+import AppNavigation from "./navigation/appNavigation";
 
 function App() {
+
+
   return (
-    <View style={{marginTop: 40}}>
-      <Text></Text>
-    </View>
+    <AppNavigation />
   );
 }
+
+export default App;
