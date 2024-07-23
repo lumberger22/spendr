@@ -1,12 +1,17 @@
 import React from "react";
 import { Text, View } from "react-native";
 import AppNavigation from "./navigation/appNavigation";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 function App() {
 
 
   return (
-    <AppNavigation />
+    <Provider store={store}>
+      <AppNavigation />
+    </Provider>
+    
   );
 }
 
