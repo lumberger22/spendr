@@ -17,7 +17,7 @@ export default function WelcomeScreen() {
                 <FastImage source={require('../assets/images/welcome.png')} className="h-96 w-96 shadow"/>
             </View>
             <View className="mx-5 mb-10">
-                <Text className={`text-center font-bold text-4xl ${colors.heading} mb-10`}>TripMate</Text>
+                <Text className={`text-center font-bold text-5xl ${colors.heading} mb-10`}>TripMate</Text>
                 <TouchableOpacity onPress={() => navigation.navigate('SignIn')} className="shadow p-3 rounded-full mb-5" style={{backgroundColor: colors.button}}>
                     <Text className="text-center text-white text-lg font-bold">Sign In</Text>
                 </TouchableOpacity>

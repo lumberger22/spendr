@@ -1,56 +1,42 @@
 import { View, Text, Touchable, Image, TouchableOpacity, FlatList } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import ScreenWrapper from '../components/screenWrapper';
 import { colors } from '../theme';
 import randomImage from '../assets/images/randomImage';
 import EmptyList from '../components/emptyList';
-import { useNavigation } from '@react-navigation/native';
+import { useIsFocused, useNavigation } from '@react-navigation/native';
 import BackButton from '../components/backButton';
-import { auth } from '../config/firebase';
+import { auth, tripsRef } from '../config/firebase';
 import { signOut } from 'firebase/auth';
-
-const items = [
-    {
-        id: 1,
-        place: 'New York',
-        country: 'USA',
-    },
-    {
-        id: 2,
-        place: 'Paris',
-        country: 'France',
-    },
-    {
-        id: 3,
-        place: 'London',
-        country: 'UK',
-    },
-    {
-        id: 4,
-        place: 'Tokyo',
-        country: 'Japan',
-    },
-    {
-        id: 5,
-        place: 'Sydney',
-        country: 'Australia',
-    },
-    { 
-        id: 6,
-        place: 'Los Angeles',
-        country: 'USA',
-    }
-];
+import { useSelector } from 'react-redux';
+import { getDocs, query, where } from 'firebase/firestore';
 
 export default function HomeScreen() {
 
     const navigation = useNavigation();
+    const {user} = useSelector(state => state.user);
+    const [trips, setTrips] = React.useState([]);
+
+    const isFocused = useIsFocused();
 
     const handleLogout = async () => {
         await signOut(auth);
     }
 
-    
+    const fetchTrips = async () => {
+        const q = query(tripsRef, where("userId", "==", user.uid));
+        const querySnapshot = await getDocs(q);
+        let data = [];
+        querySnapshot.forEach((doc) => {
+            console.log(doc.id, " => ", doc.data());
+            data.push({...doc.data(), id: doc.id});
+        });
+        setTrips(data);
+    }
+
+    useEffect(() => {
+        fetchTrips();
+    }, [isFocused]);
 
     return (
         <ScreenWrapper class="flex-1">
@@ -61,7 +47,7 @@ export default function HomeScreen() {
                 </TouchableOpacity>
             </View>
             <View className="flex-row justify-center items-center bg-blue-200 rounded-xl mx-4 mb-4">
-                <Image source={require('../assets/images/banner.png')} className="w-60 h-60" />
+                <Image source={require('../assets/images/banner.png')} className="w-64 h-64" />
             </View>
             <View className="px-4 space-y-3">
                 <View className="flex-row justify-between items-center">
@@ -72,9 +58,14 @@ export default function HomeScreen() {
                 </View>
                 <View style={{height: 380}}>
                     <FlatList 
-                        data={items}
+                        data={trips}
                         numColumns={2}
-                        ListEmptyComponent={<EmptyList message={"You haven't recorded any trips yet"}/>}
+                        ListEmptyComponent={
+                            <View className="flex-1 justify-center items-center my-5 space-y-3">
+                                    <Image source={require('../assets/images/empty.png')} className="w-36 h-36 shadow"/>
+                                    <Text className="font-bold text-gray-800">You Haven't Recorded Any Trips Yet</Text>
+                                </View>
+                        }
                         keyExtractor={item => item.id}
                         showsVerticalScrollIndicator={false}
                         columnWrapperStyle={{justifyContent: 'space-between'}}
