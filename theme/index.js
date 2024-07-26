@@ -1,5 +1,5 @@
 export const colors = {
-    heading: "text-black",
+    heading: "text-gray-900",
     button: '#50C878', // green
 }
 
