@@ -23,6 +23,7 @@ The following **user features** are implemented:
 The following **user features** are **soon** to be implemented:
 
 - [x] **Total spending amount per trip displayed**
+- [x] **User authentication with Google Sign In**
 - [x] **Expenses page with breakdown chart of spending categories**
 - [x] **Image upload from device to save as trip photo**
 
