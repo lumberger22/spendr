@@ -1,39 +1,42 @@
-# Spendr
+# TripMate
 
-## Check it out here! ->
+## Check it out here! -> NOT FINISHED
 
 Created by: **Lucas Umberger**
 
-**Spendr is a mobile application that...**
+**TripMate is a mobile application that alows you to keep track of your travel expenses all in one place. Record your recent and ongoing trips, and your expenses as you travel. Check out the summary page to see a total spending amount for each trip, and breakdowns of your spending categories.**
 
- - Languages: 
- - Framework:
- - APIs used:
+ - Languages: JavaScript
+ - Framework: React Native, Firebase, Redux, Android Studio
+ - APIs used: N/A
 
-Time spent: **xx** hours spent in total
+Time spent: **14** hours spent in total
 
 ## User Features
 
 The following **user features** are implemented:
 
-- [x] **Feature 1**
-- [x] **Feature 2**
-- [x] **Feature 3**
-- [x] **Feature 4**
+- [x] **User authentication with email and password**
+- [x] **Record trips and trip expenses**
+- [x] **View old trips and expenses on home page**
+      
+The following **user features** are **soon** to be implemented:
+
+- [x] **Total spending amount per trip displayed**
+- [x] **User authentication with Google Sign In**
+- [x] **Expenses page with breakdown chart of spending categories**
+- [x] **Image upload from device to save as trip photo**
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user features:
 
-(Insert Video Demo Here)
-
-GIF created with...
+GIF created with ScreenToGif
 
 ## Challenges
 
-  - Challenge 1
-  - Challenge 2
-  - Challenge 3
+  - I had experience in React, but switching over to react native was a learning curve. I had to read the documentation and make changes as I went along to adapt my knowledge of web dev to the mobile side. This was also my first time using TailwindCSS, which took time to learn the styling classes that would mimic pure CSS.
+  - Another challenge was getting the authentication set up with firebase and redux to manage the states and current user. At first I could not get the redux user state to only show the welcome/signIn pages and make that exclusive. After watching some youtube videos and reading over the docs, I got the slice set up to pass the user to the navigation so that only certain screens would load if a user was present.
 
 ## License
 
