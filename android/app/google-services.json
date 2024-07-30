@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "466782090041",
+    "project_id": "tripmate-da11c",
+    "storage_bucket": "tripmate-da11c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466782090041:android:06747550990d323890aee8",
+        "android_client_info": {
+          "package_name": "com.spendr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466782090041-j5bcg9iuso2qdpkflf97apdar7vhadmo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.spendr",
+            "certificate_hash": "cd4aa3d9243e0236e806a64dbec4fbbfc353ea0f"
+          }
+        },
+        {
+          "client_id": "466782090041-amf6chglt91ai04kec76ks4vjct40fh3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyCc8jyObnLBgcXftDoCTRvI8ROUNInKM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "466782090041-amf6chglt91ai04kec76ks4vjct40fh3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
