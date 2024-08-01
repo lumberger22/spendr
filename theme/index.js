@@ -4,9 +4,9 @@ export const colors = {
 }
 
 export const expenseColors = {
-    food: '#FFF9D0', // yellow
-    shopping: '#FFB19F',  // red
-    transport: '#D0F0FF',    // blue
-    entertainment: '#FFD6C2', // orange
-    other: '#E0FFE0',  // green
-}
+    food: '#FFB6C1',        // LightPink - Soft and subtle
+    shopping: '#ADD8E6',    // LightBlue - Gentle and calming
+    transport: '#FFE4B5',   // Moccasin - Warm and inviting
+    entertainment: '#A3D9A5', // PaleGreen - Fresh and light
+    other: '#D8BFD8',       // Thistle - Soft and neutral
+};

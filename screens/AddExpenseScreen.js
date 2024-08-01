@@ -18,6 +18,7 @@ export default function AddExpenseScreen(props) {
     const [title, setTitle] = React.useState('');
     const [amount, setAmount] = React.useState('');
     const [category, setCategory] = React.useState('');
+    const [time, setTime] = React.useState('');
     const [loading, setLoading] = React.useState(false);
 
     const navigation = useNavigation();
@@ -30,7 +31,8 @@ export default function AddExpenseScreen(props) {
               title,
               amount,
               category,
-              tripId: id
+              tripId: id,
+              time: new Date().toISOString()
             });
 
             setLoading(false);

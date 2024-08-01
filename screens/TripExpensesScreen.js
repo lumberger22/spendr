@@ -8,6 +8,10 @@ import BackButton from '../components/backButton';
 import { expensesRef } from '../config/firebase';
 import { getDocs, query, where } from 'firebase/firestore';
 import { useSelector } from 'react-redux';
+import { PieChart } from 'react-native-chart-kit';
+import { Dimensions } from 'react-native';
+
+const screenWidth = Dimensions.get('window').width;
 
 export default function TripExpensesScreen(props) {
 
@@ -31,6 +35,27 @@ export default function TripExpensesScreen(props) {
         fetchExpenses();
     }, [isFocused]);
 
+    const aggregateData = expenses.reduce((acc, { category, amount }) => {
+        const categoryAmount = parseFloat(amount);
+        if (acc[category]) {
+            acc[category] += categoryAmount;
+        } else {
+            acc[category] = categoryAmount;
+        }
+        return acc;
+    }, {});
+      
+    const data = Object.keys(aggregateData).map(category => ({
+        name: category,
+        amount: aggregateData[category],
+        color: expenseColors[category],
+        legendFontColor: '#7F7F7F',
+        legendFontSize: 15
+    }));
+
+    const totalAmountSpent = expenses.reduce((total, { amount }) => total + parseFloat(amount), 0);
+
+
     return (
         <ScreenWrapper class="flex-1">
             <View className="px-4">
@@ -43,9 +68,39 @@ export default function TripExpensesScreen(props) {
                             <Text className={`${colors.heading} text-s text-center`}>{country}</Text>
                         </View>
                 </View>
-                <View className="flex-row justify-center items-center rounded-xl mb-4">
-                    <Image source={require('../assets/images/7.png')} className="w-80 h-80" />
-                </View>
+                <Text className="mt-6 text-2xl text-center">Total Expenses: ${totalAmountSpent}</Text>
+                    {
+                        totalAmountSpent > 0 ? (
+                            <>
+                            <View className="mt-1 mb-3 flex-row items-center gap-5 justify-center">
+                                <View className="w-52">
+                                    <PieChart
+                                        data={data}
+                                        width={screenWidth}
+                                        height={220}
+                                        chartConfig={{
+                                            color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                                        }}
+                                        accessor="amount"
+                                        backgroundColor="transparent"
+                                        hasLegend={false}
+                                        absolute
+                                    />
+                                </View>
+                                <View>
+                                    {data.map((item) => (
+                                        <View key={item.name} className="flex-row m-0.5 items-center">
+                                            <View className="w-3 h-3 mr-2 rounded-full" style={{ backgroundColor: item.color}} />
+                                            <Text style={{ color: '#7F7F7F', fontSize: 15 }}>${item.amount} {item.name}</Text>
+                                        </View>
+                                    ))}
+                                </View>
+                            </View>
+                            </>
+                        ): ( 
+                            <View className="mb-5"/>
+                        )
+                    }
                 <View className="space-y-3">
                     <View className="flex-row justify-between items-center">
                         <Text className={`${colors.heading} font-bold text-xl`}>Expenses</Text>
