@@ -28,11 +28,11 @@ The following **user features** are **soon** to be implemented:
 - [x] **Image upload from device to save as trip photo**
 - [x] **User can remove trips and expenses**
 
-## Video Walkthrough
+## Project Demo
 
-Here's a walkthrough of implemented user features:
+Here's a demo of implemented user features:
 
-![Walkthrough GIF](TripMate_walkthrough.gif)
+<img src="./TripMate_walkthrough.gif" alt="Demo GIF" width="300"/>
 
 GIF created with ScreenToGif
 
