@@ -1,5 +1,7 @@
 # TripMate
 
+# Progress: Ongoing
+
 Created by: **Lucas Umberger**
 
 **TripMate is a mobile application that alows you to keep track of your travel expenses all in one place. Record your recent and ongoing trips, and your expenses as you travel. Check out the summary page to see a total spending amount for each trip, and breakdowns of your spending categories.**
