@@ -10,7 +10,7 @@ Created by: **Lucas Umberger**
  - Framework: React Native, Firebase, Redux, Android Studio
  - APIs used: N/A
 
-Time spent: **16** hours spent in total
+Time spent: **22** hours spent in total
 
 ## User Features
 
